@@ -47,3 +47,11 @@ end
 
 gem 'rename' 
 
+gem 'haml'
+
+gem 'mongoid', '~> 4.0'
+
+gem 'simple_form'
+
+
+

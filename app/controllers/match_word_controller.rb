@@ -1,5 +1,5 @@
 class MatchWordController < ApplicationController
-  def insert_word
+  def index
     
   end
 end
