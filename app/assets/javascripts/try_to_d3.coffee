@@ -73,7 +73,7 @@ class DThree
       
       x_scale = d3.scale.ordinal()
         .domain(d3.range(dataset.length))
-        .range([0, width - padding.left - padding.right])
+        .rangeRoundBands([0, width - padding.left - padding.right])
 
       y_scale = d3.scale.linear()
         .domain([0, d3.max(dataset)])
@@ -105,6 +105,7 @@ class DThree
         .attr("height", (d)->
           height - padding.top - padding.bottom - y_scale(d)
         )
+        .attr("fill","steelblue")
 
       texts = svg.selectAll(".my-text")
         .data(dataset)
