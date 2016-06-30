@@ -2,7 +2,7 @@ source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -45,13 +45,17 @@ group :development do
   gem 'spring'
 end
 
-gem 'rename' 
-
 gem 'haml'
 
-gem 'mongoid', '~> 4.0'
+gem 'mongoid', '~> 5.1.0'
 
 gem 'simple_form'
 
+gem 'react-rails', '1.7.1'
+gem 'sprockets-coffee-react', '4.0.0'
+
+source 'https://rails-assets.org'
+
+gem 'rails-assets-d3-tip'
 
 

@@ -10,7 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require d3
+//= require d3-tip
+
+//= require react
+//= require react_ujs
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+//= require match_word
+//= require react_code
+//= require components
+//= try_to_d3
+
 //= require_tree .
