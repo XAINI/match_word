@@ -1,3 +1,6 @@
+require 'tempfile'
+require 'open-uri'
+require 'net/http'
 class MatchWordController < ApplicationController
   def index
     
@@ -39,14 +42,16 @@ class MatchWordController < ApplicationController
   end
 
   def insert_into_question
-    content = params[:content]
-    aaa = params[:aaa]
-    bbb = params[:bbb]
-    ccc = params[:ccc]
-    ddd = params[:ddd]
-    correct = params[:correct]
-    p "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    
+    single_question_result = params[:single_quesiton]
+    multi_question_result = params[:multi_question]
+    single_file_path = "public/单选题.json"
+    multi_file_path = "public/多选题.json"
+    single_file = File.new(single_file_path, 'wb+')
+    multi_file = File.new(multi_file_path, 'wb+')
+    single_file.write(single_question_result.to_json)
+    multi_file.write(multi_question_result.to_json)
+    single_file.close
+    multi_file.close
   end
 
 

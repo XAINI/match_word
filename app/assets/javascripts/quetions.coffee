@@ -7,12 +7,12 @@ class SaveQuestion
     match_result
 
   RegExp_delet_letter: (choice)->
-    match_result = choice.replace(/\w.+?/g,'')
+    match_result = choice.replace(/\w.+?\s+/g,'')
     match_result
 
   # desc multi_choice  choices[0..4] answer 
   bind_event:->
-    @$eml.on "click", ".submit-question",=>
+    @$eml.on "click", ".submit-question .convert-to-form",=>
       questions_single = []
       questions_multi = []
       input = jQuery(".input textarea").val()
@@ -100,10 +100,23 @@ class SaveQuestion
       question_multi_hash = {
         "question": questions_multi
       }
-      console.log question_single_hash
-      console.log question_multi_hash
       input = jQuery(".output textarea").val(JSON.stringify(question_single_hash))
       input = jQuery(".output-multi textarea").val(JSON.stringify(question_multi_hash))
+
+    @$eml.on "click",".submit-question .save-converted-result",->
+      single_choice_result = jQuery(".output textarea").val()
+      multi_choice_result = jQuery(".output-multi textarea").val()
+      single_to_json = JSON.parse(single_choice_result)
+      multi_to_json = JSON.parse(multi_choice_result)
+      console.log multi_to_json
+      jQuery.ajax
+        url: "/match_word/insert_into_question",
+        method: "post",
+        data:{single_quesiton: single_to_json, multi_question: multi_to_json}
+      .success (msg)->
+        console.log msg
+      .error (msg)->
+        console.log msg
 
 
 jQuery(document).on "ready page:load", ->
