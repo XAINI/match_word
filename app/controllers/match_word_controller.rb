@@ -34,6 +34,22 @@ class MatchWordController < ApplicationController
     }
   end
 
+  def insert_question
+    
+  end
+
+  def insert_into_question
+    content = params[:content]
+    aaa = params[:aaa]
+    bbb = params[:bbb]
+    ccc = params[:ccc]
+    ddd = params[:ddd]
+    correct = params[:correct]
+    p "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    
+  end
+
+
   private
     def RegExp_split_words(str)
       data = []
